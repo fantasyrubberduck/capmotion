@@ -41,12 +41,12 @@ pytest_cache/
 # MacOS / Linux / Windows
 .DS_Store
 Thumbs.db
+*:Zone.Identifier
 
 # Fitxers d'imatges i vídeos
 *.png
 *.jpg
 *.jpeg
-*:Zone.Identifier
 *.mpg
 *.avi
 *.mpeg

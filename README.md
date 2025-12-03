@@ -5,8 +5,6 @@
 ![Docker](https://img.shields.io/badge/docker-ready-blue?logo=docker)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![Codecov Coverage](https://codecov.io/gh/fantasyrubberduck/capmotion/branch/main/graph/badge.svg)](https://codecov.io/gh/fantasyrubberduck/capmotion)
-![Docker Hub](https://img.shields.io/docker/pulls/fantasyrubberduck/capmotion?logo=docker)
-[![Codecov Coverage](https://codecov.io/gh/fantasyrubberduck/capmotion/branch/main/graph/badge.svg)](https://codecov.io/gh/fantasyrubberduck/capmotion)
 
 
 ---
