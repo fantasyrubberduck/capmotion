@@ -1,0 +1,53 @@
+# Entorn i configuració
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+*.log
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+
+# Docker
+postgres_data/
+*.sql~
+
+# IDEs i editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Tests i cobertura
+.coverage
+htmlcov/
+.cache/
+pytest_cache/
+
+# Fitxers temporals
+*.tmp
+*.bak
+*.old
+
+# MacOS / Linux / Windows
+.DS_Store
+Thumbs.db
+
+# Fitxers d'imatges i vídeos
+*.png
+*.jpg
+*.jpeg
+*:Zone.Identifier
+*.mpg
+*.avi
+*.mpeg
+*.mp4

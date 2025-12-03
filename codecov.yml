@@ -1,0 +1,26 @@
+# Configuració de Codecov
+
+coverage:
+  precision: 2          # decimals mostrats
+  round: down           # arrodonir cap avall
+  range: "70..100"      # rang acceptable de cobertura
+
+  status:
+    project:
+      default:
+        target: 80       # cobertura mínima exigida (%)
+        threshold: 2     # tolerància abans de marcar com a fallida
+    patch:
+      default:
+        target: 70       # cobertura mínima exigida per cada PR
+
+ignore:
+  - "tests/"             # ignorem els fitxers de test
+  - "setup.py"           # ignorem fitxers de configuració
+  - "Dockerfile"         # ignorem Dockerfile
+  - "Makefile"           # ignorem Makefile
+
+comment:
+  layout: "reach, diff, flags, files"
+  behavior: default
+  require_changes: false
