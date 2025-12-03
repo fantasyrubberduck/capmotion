@@ -1,63 +1,46 @@
-# Nom del projecte
-PROJECT_NAME=motion-capture
+# Makefile per Motion Capture
 
-# Compose
-COMPOSE=docker compose
+# Variables
+DOCKER_COMPOSE = docker compose
+SERVICE = motion-capture
 
-# Build general
+# Construir imatges
 build:
-    $(COMPOSE) build
+	$(DOCKER_COMPOSE) build
 
-# Arrencada en segon pla (detached)
+# Arrencar serveis
 up:
-    $(COMPOSE) up -d
+	$(DOCKER_COMPOSE) up -d
 
 # Arrencada en primer pla (foreground)
 up-fg:
-    $(COMPOSE) up
+    $(DOCKER_COMPOSE) up
 
 # Aturar serveis
 down:
-    $(COMPOSE) down
-
-# Logs en temps real
-logs:
-    $(COMPOSE) logs -f
+	$(DOCKER_COMPOSE) down
 
 # Reiniciar ràpidament
 restart: down up
 
+# Veure logs (stderr inclòs)
+logs:
+	$(DOCKER_COMPOSE) logs -f $(SERVICE)
+
 # Estat dels serveis
 ps:
-    $(COMPOSE) ps
+    $(DOCKER_COMPOSE) ps
+	
+# Executar tests amb cobertura
+test:
+	pytest -v --cov=$(SERVICE) --cov-report=xml --cov-report=term-missing tests/
 
-# Neteja completa
+# Logs en temps real
+logs:
+    $(DOCKER_COMPOSE) logs -f
+
+# Netejar tot
 clean:
-    $(COMPOSE) down -v --remove-orphans
+    $(DOCKER_COMPOSE) down -v --remove-orphans
     docker system prune -f
-
-# --- Objectius per càmera ---
-
-# Webcam en segon pla
-webcam:
-    $(COMPOSE) up -d webcam
-
-# Webcam en primer pla
-webcam-fg:
-    $(COMPOSE) up webcam
-
-# IP cam en segon pla
-ipcam:
-    $(COMPOSE) up -d ipcam
-
-# IP cam en primer pla
-ipcam-fg:
-    $(COMPOSE) up ipcam
-
-# Aturar només webcam
-webcam-down:
-    $(COMPOSE) stop webcam
-
-# Aturar només ipcam
-ipcam-down:
-    $(COMPOSE) stop ipcam
+	rm -rf output/*.mp4 coverage.xml

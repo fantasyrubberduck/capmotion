@@ -6,12 +6,35 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![Codecov Coverage](https://codecov.io/gh/fantasyrubberduck/capmotion/branch/main/graph/badge.svg)](https://codecov.io/gh/fantasyrubberduck/capmotion)
 
-
 ---
 
 ## 📌 Descripció
 Aquest projecte permet **capturar automàticament fragments de vídeo quan es detecta moviment** en una font de càmera (webcam local o càmera IP via RTSP).  
 Està pensat per ser **portable, escalable i fàcil d’integrar en CI/CD**, utilitzant Docker i Docker Compose.
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# 1. Clona el repositori
+git clone https://github.com/fantasyrubberduck/capmotion.git
+cd capmotion
+
+# 2. Construeix les imatges Docker
+make build
+
+# 3. Arrenca els serveis (webcam + ipcam)
+make up
+```
+
+📌 Els clips es guarden automàticament a la carpeta `output/`.
+
+---
+
+### 🔧 Notes especials per WSL
+Si utilitzes **WSL (Windows Subsystem for Linux)** i vols accedir a dispositius USB (per exemple, webcams locals), cal instal·lar prèviament **usb-ipd-win**.  
+Guia oficial: [usb-ipd-win WSL support](https://github.com/dorssel/usbipd-win/wiki/WSL-support)
 
 ---
 

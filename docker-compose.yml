@@ -1,22 +1,14 @@
-version: "3.9"
-
+version: "3.8"
 services:
-  webcam:
+  motion-capture:
     build: .
-    container_name: motion_webcam
-    devices:
-      - "/dev/video0:/dev/video0"   # accés a la webcam local
-    volumes:
-      - ./output/webcam:/app/output
     environment:
-      - CAMERA_SOURCE=/dev/video0   # variable per indicar la font
-    restart: unless-stopped
-
-  ipcam:
-    build: .
-    container_name: motion_ipcam
+      - CAMERA_SOURCE=${CAMERA_SOURCE}
+      - BUFFER_SIZE=${BUFFER_SIZE}
+      - STOP_DELAY=${STOP_DELAY}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - FPS_OVERRIDE=${FPS_OVERRIDE}
+      - WIDTH_OVERRIDE=${WIDTH_OVERRIDE}
+      - HEIGHT_OVERRIDE=${HEIGHT_OVERRIDE}
     volumes:
-      - ./output/ipcam:/app/output
-    environment:
-      - CAMERA_SOURCE=rtsp://user:password@192.168.1.50:554/stream
-    restart: unless-stopped
+      - ./output:/app/output
